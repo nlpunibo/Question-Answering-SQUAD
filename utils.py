@@ -1,7 +1,6 @@
 import ast
 import random
 import torch
-import pandas
 import collections
 import datasets
 import transformers
