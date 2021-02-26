@@ -1,5 +1,4 @@
 import argparse
-import matplotlib.pyplot as plt
 from load import *
 from utils import *
 from model import *
