@@ -16,10 +16,10 @@ def main():
     fix_random(seed=42)
 
     # Load the data
-    data_path = str(Path(args.path_to_json_file).parent) + "\\"
-    _ = LoadData(args.path_to_json_file, data_path)
+    data_path = Path(args.path_to_json_file).parent
+    _ = LoadData(args.path_to_json_file, str(data_path))
 
-    test_data = load_dataset('csv', data_files=data_path + "test.csv")
+    test_data = load_dataset('csv', data_files=str(data_path / "test.csv"))
 
     # Convert the answers in dict type, this will be useful later
     test_data = test_data.map(string_to_dict)
@@ -67,7 +67,7 @@ def main():
     # We instantiate a `Trainer`, that will be used to get the predictions.
     # Note: This is not necessary, but using the Trainer instead of directly the model to get the predictions simplify this operation.
     args = TrainingArguments(
-        output_dir='./results',
+        output_dir= str(data_path / "results"),
         label_names=["start_positions", "end_positions"]
     )
     trainer = Trainer(model, args)
@@ -93,7 +93,7 @@ def main():
     final_predictions = dict(squad.postprocess_qa_predictions(test_data['train'], test_features, pred.predictions))
 
     # Create a new file and save the predictions
-    with open(data_path + "predictions.txt", 'w') as file:
+    with open(data_path / "predictions.txt", 'w') as file:
         file.write(json.dumps(final_predictions))
         file.close()
 
