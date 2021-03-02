@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+from pathlib import Path
 
 
 class LoadData_train():
@@ -32,9 +33,9 @@ class LoadData_train():
         train_data_flat, val_data_flat, errors = self.load_squad_data(train_data)
         print(f'\nErroneous Datapoints: {errors}')
 
-        pd.DataFrame(train_data_flat).to_csv(self.checkpoint_path + self.train_file, encoding='utf-8')
+        pd.DataFrame(train_data_flat).to_csv(Path(self.checkpoint_path) / Path(self.train_file), encoding='utf-8')
 
-        pd.DataFrame(val_data_flat).to_csv(self.checkpoint_path + self.val_file, encoding='utf-8')
+        pd.DataFrame(val_data_flat).to_csv(Path(self.checkpoint_path) / Path(self.val_file), encoding='utf-8')
 
     def load_squad_data(self, data, split=0.2):
 
@@ -106,7 +107,7 @@ class LoadData():
         test_data_flat, errors = self.load_squad_data(test_data)
         print(f'\nErroneous Datapoints: {errors}')
 
-        pd.DataFrame(test_data_flat).to_csv(self.checkpoint_path + self.test_file, encoding='utf-8')
+        pd.DataFrame(test_data_flat).to_csv(Path(self.checkpoint_path) / Path(self.test_file), encoding='utf-8')
 
     def load_squad_data(self, data):
 
