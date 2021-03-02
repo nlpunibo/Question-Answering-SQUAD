@@ -17,8 +17,8 @@ We recommend creating a separate python 3.6 environment.
 
 **Simone Gayed Said** - simone.gayed@studio.unibo.it </br>
 **Alex Rossi** - alex.rossi6@studio.unibo.it </br>
-**Jia Liang Zhou** - jialiang.zhou@studio.unibo.it
-**Hanying Zhang** - hanying.zhang@studio.unibo.it </br>
+**Jia Liang Zhou** - jialiang.zhou@studio.unibo.it </br>
+**Hanying Zhang** - hanying.zhang@studio.unibo.it
 
 ## Useful Links
 
