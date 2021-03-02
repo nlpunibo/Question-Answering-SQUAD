@@ -16,11 +16,11 @@ def main():
     fix_random(seed=42)
 
     # Load the data
-    data_path = str(Path(args.path_to_json_file).parent) + "\\"
-    _ = LoadData_train(args.path_to_json_file, data_path)
+    data_path = Path(args.path_to_json_file).parent
+    _ = LoadData_train(args.path_to_json_file, str(data_path))
 
-    train_data = load_dataset('csv', data_files=data_path + "train.csv")
-    val_data = load_dataset('csv', data_files=data_path + "val.csv")
+    train_data = load_dataset('csv', data_files=str(data_path / "train.csv"))
+    val_data = load_dataset('csv', data_files=str(data_path / "val.csv"))
 
     # Convert the answers in dict type, this will be useful later
     train_data = train_data.map(string_to_dict)
@@ -92,7 +92,7 @@ def main():
     # use the defined `batch_size` and customize the number of epochs for training, as well as the weight decay.
     batch_size = 32
     args = TrainingArguments(
-        output_dir='./results',
+        output_dir=str(data_path / "results"),
         save_total_limit=5,
         evaluation_strategy="epoch",
         learning_rate=5e-5,
@@ -100,7 +100,7 @@ def main():
         per_device_eval_batch_size=batch_size,
         num_train_epochs=3,
         weight_decay=0.01,
-        logging_dir='./logs',
+        logging_dir=str(data_path / "logs"),
         label_names=["start_positions", "end_positions"]
     )
 
@@ -135,7 +135,7 @@ def main():
     trainer.train()
 
     # Since this training is particularly long, let's save the model just in case we need to restart.
-    trainer.save_model(data_path + "test-squad-trained")
+    trainer.save_model(str(data_path / "test-squad-trained"))
 
 
 if __name__ == '__main__':
