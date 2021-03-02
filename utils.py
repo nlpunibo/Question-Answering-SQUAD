@@ -246,7 +246,7 @@ class SQUAD():
 
           Args:
             examples: Squad samples
-            features:
+            features: Squad features
             raw_predictions: model predictions
         """
 
