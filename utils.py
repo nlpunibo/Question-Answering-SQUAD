@@ -24,7 +24,7 @@ def fix_random(seed: int) -> None:
     torch.backends.cudnn.deterministic = True
 
 
-def answer_len(answer: str) -> str:
+def answer_len(answer: str) -> int:
     """Extract only the text from an answer and return its length
 
     Args:
