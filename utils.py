@@ -25,7 +25,7 @@ def fix_random(seed: int) -> None:
 
 
 def answer_len(answer: str) -> str:
-    """Extract only the text from an answer
+    """Extract only the text from an answer and return its length
 
     Args:
         answer: the seed to use.
