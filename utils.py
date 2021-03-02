@@ -242,7 +242,7 @@ class SQUAD():
 
     def postprocess_qa_predictions(self, examples: datasets.arrow_dataset.Dataset,
                                    features: datasets.arrow_dataset.Dataset, raw_predictions: tuple) -> collections.OrderedDict:
-        """Function used to select the best answer from
+        """Function used to select the best answer from the raw predictions
 
           Args:
             examples: Squad samples
