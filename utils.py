@@ -28,7 +28,7 @@ def answer_len(answer: str) -> int:
     """Extract only the text from an answer and return its length
 
     Args:
-        answer: the seed to use.
+        answer: the answer.
     """
     return len(answer.split("'text': ")[1][2:-3])
 
