@@ -15,7 +15,7 @@ We recommend creating a separate python 3.6 environment.
 
 ## Recommendations
 
-We strongly reccomend you to use a GPU for running the `train.py` and the `eval.py` scripts. To do so you can use the Nvidia graphic card of your machine, if it has one. In this case make sure that you have all the prerequisites (https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-windows) and to have installed the pytorch version for the CUDA platform https://pytorch.org/.
+We strongly reccomend you to use a GPU for running the `train.py` and the `eval.py` scripts. To do so you can use the Nvidia graphic card of your machine, if it has one. In this case make sure that you have all the prerequisites (https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-windows) and to have installed the pytorch version for the CUDA platform (https://pytorch.org/).
 
 If you don't have an Nvidia GPU at your disposal don't worry we have created for you two Colab Notebooks `DistilbertQA_train.ipynb` and the `DistilbertQA_eval.ipynb`. Colab is a hosted Jupyter notebook service that requires no setup to use, while providing free access to computing resources including GPUs! You will not have to install anything, just navigate to Edit→Notebook Settings, and make sure that GPU is selected as Hardware Accelerator.
 
