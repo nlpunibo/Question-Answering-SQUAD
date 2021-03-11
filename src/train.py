@@ -1,7 +1,7 @@
 import argparse
-from src.load import *
-from src.utils import *
-from src.model import *
+from load import *
+from utils import *
+from model import *
 from pathlib import Path
 from datasets import load_dataset
 from transformers import AutoTokenizer, TrainingArguments, Trainer, default_data_collator
