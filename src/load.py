@@ -95,7 +95,7 @@ class LoadData():
 
           Args:
               path_to_json_file: path to the json file.
-              checkpoint_path: path where to save the csv files.
+              checkpoint_path: path where to save the json file.
               test_file: name of the test json file that will be created.
         """
 
