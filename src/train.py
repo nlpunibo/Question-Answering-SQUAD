@@ -19,12 +19,8 @@ def main():
     data_path = Path(args.path_to_json_file).parent
     _ = LoadData_train(args.path_to_json_file, str(data_path))
 
-    train_data = load_dataset('csv', data_files=str(data_path / "train.csv"))
-    val_data = load_dataset('csv', data_files=str(data_path / "val.csv"))
-
-    # Convert the answers in dict type, this will be useful later
-    train_data = train_data.map(string_to_dict)
-    val_data = val_data.map(string_to_dict)
+    train_data = load_dataset('json', data_files=str(data_path / "train.json"), field='data')
+    val_data = load_dataset('json', data_files=str(data_path / "val.json"), field='data')
 
     # Preprocessing the training data
 
