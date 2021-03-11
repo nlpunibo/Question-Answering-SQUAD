@@ -34,7 +34,7 @@ class LoadData_train():
         print(f'\nErroneous Datapoints: {errors}')
               
         with open(Path(self.checkpoint_path) / Path(self.train_file), 'w') as file:
-            test_data = {'data':train_data_flat}
+            train_data = {'data':train_data_flat}
             file.write(json.dumps(train_data))
             file.close()
               
