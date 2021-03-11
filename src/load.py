@@ -13,7 +13,7 @@ class LoadData_train():
 
         Args:
             path_to_json_file: path to the json file.
-            checkpoint_path: path where to save the csv files.
+            checkpoint_path: path where to save the json files.
             train_file: name of the train json file that will be created.
             val_file: name of the val json file that will be created.
         """
