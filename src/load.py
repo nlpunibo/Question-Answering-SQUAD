@@ -39,7 +39,7 @@ class LoadData_train():
             file.close()
               
         with open(Path(self.checkpoint_path) / Path(self.val_file), 'w') as file:
-            test_data = {'data':val_data_flat}
+            val_data = {'data':val_data_flat}
             file.write(json.dumps(val_data))
             file.close()
 
