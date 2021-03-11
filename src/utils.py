@@ -1,4 +1,3 @@
-import ast
 import random
 import torch
 import collections
