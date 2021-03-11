@@ -1,5 +1,5 @@
 # Question-Answering-SQUAD
-Question Answering is the task of answering questions (typically reading comprehension questions), but abstaining when presented with a question that cannot be answered based on the provided context.
+Question answering is an important task based on which intelligence of NLP systems and AI in general can be judged. A QA system is given a short paragraph or *context* about some topic and is asked some questions based on the passage. The answers to these questions are spans of the context, that is they are directly available in the passage. To train such models, we use the [SQUAD](https://arxiv.org/abs/1606.05250) dataset.
 
 The main method we rely on in this project is Transformer. Specifically, we take the DistilBERT model, pretrained on Masked LM and Next Sentence Prediction, add new head for question answering, and train the new model for our task. 
 
