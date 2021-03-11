@@ -19,10 +19,7 @@ def main():
     data_path = Path(args.path_to_json_file).parent
     _ = LoadData(args.path_to_json_file, str(data_path))
 
-    test_data = load_dataset('csv', data_files=str(data_path / "test.csv"))
-
-    # Convert the answers in dict type, this will be useful later
-    test_data = test_data.map(string_to_dict)
+    test_data = load_dataset('json', data_files=str(data_path / "json.csv"), field='data')
 
     # Preprocessing the test data
 
