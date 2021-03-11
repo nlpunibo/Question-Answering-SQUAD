@@ -22,7 +22,14 @@ We recommend creating a separate python 3.6 environment.
 To run the two scripts `train.py` and the `eval.py`, you just need to launch respectively:
 - `python3 train.py [path_to_json_file]`
 - `python3 eval.py [path_to_json_file]`
-Where `path_to_json_file` is the path to the json file which, in the `train.py` case, will be used to train our custom DistilBertForQuestionAnswering model whereas, in the `eval.py` case, it will be used to obtain the corresponding predictions.
+Where `path_to_json_file` is the path to the json file which, in the `train.py` case, will be used to train our custom DistilBertForQuestionAnswering model whereas, in the `eval.py` case, it will be used to compute and save another JSON file with the following format
+
+```json
+{
+    "question_id": "textual answer",
+    ...
+}
+```
 
 The two Colab notebooks `DistilbertQA_train.ipynb` and `DistilbertQA_eval.ipynb` provide more comments and useful plots w.r.t the python scripts. If you want to use them make sure to have a Google Drive folder with the json files you want to use and to change in the notebooks the `FOLDER_NAME` and `JSON_TEST_FILE` text fields.
 
