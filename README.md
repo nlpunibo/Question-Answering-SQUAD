@@ -31,7 +31,7 @@ Where `path_to_json_file` is the path to the json file which, in the `train.py` 
     ...
 }
 ```
- - `python3 evaluate.py [path_to_json_file] [prediction_file]`: given the path to the same testing JSON file used in the `get_predictions.py` script and the txt file produced by the script itself, prints to the standard output a dictionary of metrics such as the `F1` and `Exact Match` scores, which can be used to assess the performance of a trained model as done in the official SQuAD competition
+ - `python3 evaluate.py [path_to_json_file] [prediction_file]`: given the path to the same testing json file used in the `get_predictions.py` script and the json file produced by the script itself, prints to the standard output a dictionary of metrics such as the `F1` and `Exact Match` scores, which can be used to assess the performance of a trained model as done in the official SQuAD competition
 
 The two Colab notebooks `DistilbertQA_train.ipynb` and `DistilbertQA_eval.ipynb` provide more comments and useful plots w.r.t the python scripts. If you want to use them make sure to have a Google Drive folder with the json files you want to use and to change in the notebooks the `FOLDER_NAME` and `JSON_TEST_FILE` text fields.
 
