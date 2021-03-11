@@ -93,7 +93,7 @@ def main():
     final_predictions = dict(squad.postprocess_qa_predictions(test_data['train'], test_features, pred.predictions))
 
     # Create a new file and save the predictions
-    with open(data_path / "predictions.txt", 'w') as file:
+    with open(data_path / "predictions.json", 'w') as file:
         file.write(json.dumps(final_predictions))
         file.close()
 
