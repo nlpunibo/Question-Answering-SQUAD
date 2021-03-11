@@ -24,27 +24,6 @@ def fix_random(seed: int) -> None:
     torch.backends.cudnn.deterministic = True
 
 
-def answer_len(answer: str) -> int:
-    """Extract only the text from an answer and return its length
-
-    Args:
-        answer: the answer.
-    """
-    return len(answer.split("'text': ")[1][2:-3])
-
-
-def string_to_dict(examples: dict) -> dict:
-    """Convert the answers form string to dict.
-       This is needed because when you load the data from the csv file
-       the type of the 'answers' column is string but we want a dict
-
-     Args:
-         examples: a squad sample.
-     """
-    examples['answers'] = ast.literal_eval(examples['answers'])
-    return examples
-
-
 class SQUAD():
     def __init__(self,
                  tokenizer, pad_on_right: bool = True, max_length: int = 384, doc_stride: int = 128,
