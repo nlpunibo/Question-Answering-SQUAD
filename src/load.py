@@ -7,15 +7,15 @@ class LoadData_train():
     def __init__(self,
                  path_to_json_file: str,
                  checkpoint_path: str,
-                 train_file: str = 'train.csv',
-                 val_file: str = 'val.csv') -> None:
+                 train_file: str = 'train.json',
+                 val_file: str = 'val.json') -> None:
         """Load the data by flattening the json file and saving it.
 
         Args:
             path_to_json_file: path to the json file.
             checkpoint_path: path where to save the csv files.
-            train_file: name of the train csv file that will be created.
-            val_file: name of the val csv file that will be created.
+            train_file: name of the train json file that will be created.
+            val_file: name of the val json file that will be created.
         """
 
         self.path_to_json_file = path_to_json_file
@@ -32,10 +32,16 @@ class LoadData_train():
         print(f'Flattening SQUAD {train_data["version"]}')
         train_data_flat, val_data_flat, errors = self.load_squad_data(train_data)
         print(f'\nErroneous Datapoints: {errors}')
-
-        pd.DataFrame(train_data_flat).to_csv(Path(self.checkpoint_path) / Path(self.train_file), encoding='utf-8')
-
-        pd.DataFrame(val_data_flat).to_csv(Path(self.checkpoint_path) / Path(self.val_file), encoding='utf-8')
+              
+        with open(Path(self.checkpoint_path) / Path(self.train_file), 'w') as file:
+            test_data = {'data':train_data_flat}
+            file.write(json.dumps(train_data))
+            file.close()
+              
+        with open(Path(self.checkpoint_path) / Path(self.val_file), 'w') as file:
+            test_data = {'data':val_data_flat}
+            file.write(json.dumps(val_data))
+            file.close()
 
     def load_squad_data(self, data, split=0.2):
 
@@ -84,13 +90,13 @@ class LoadData():
     def __init__(self,
                  path_to_json_file: str,
                  checkpoint_path: str,
-                 test_file: str = 'test.csv') -> None:
+                 test_file: str = 'test.json') -> None:
         """Load the data by flattening the json file and saving it.
 
           Args:
               path_to_json_file: path to the json file.
               checkpoint_path: path where to save the csv files.
-              test_file: name of the test csv file that will be created.
+              test_file: name of the test json file that will be created.
         """
 
         self.path_to_json_file = path_to_json_file
@@ -106,8 +112,11 @@ class LoadData():
         print(f'Flattening SQUAD {test_data["version"]}')
         test_data_flat, errors = self.load_squad_data(test_data)
         print(f'\nErroneous Datapoints: {errors}')
-
-        pd.DataFrame(test_data_flat).to_csv(Path(self.checkpoint_path) / Path(self.test_file), encoding='utf-8')
+        
+        with open(Path(self.checkpoint_path) / Path(self.test_file), 'w') as file:
+            test_data = {'data':test_data_flat}
+            file.write(json.dumps(test_data))
+            file.close()
 
     def load_squad_data(self, data):
 
