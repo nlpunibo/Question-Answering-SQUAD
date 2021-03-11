@@ -22,6 +22,7 @@ We recommend creating a separate python 3.6 environment.
 To run the two scripts `train.py` and the `eval.py`, you just need to launch respectively:
 - `python3 train.py [path_to_json_file]`
 - `python3 get_predictions.py [path_to_json_file]`
+
 Where `path_to_json_file` is the path to the json file which, in the `train.py` case, will be used to train our custom DistilBertForQuestionAnswering model whereas, in the `get_predictions.py` case, it will be used to compute and save another JSON file with the following format
 
 ```json
@@ -30,7 +31,7 @@ Where `path_to_json_file` is the path to the json file which, in the `train.py` 
     ...
 }
 ```
- - `evaluate.py`: given the path to the same testing JSON file used in the `get_predictions.py` script and the JSON file produced by the script itself, prints to the standard output a dictionary of metrics such as the `F1` and `Exact Match` scores, which can be used to assess the performance of a trained model as done in the official SQuAD competition
+ - `python3 evaluate.py [path_to_json_file] [prediction_file]`: given the path to the same testing JSON file used in the `get_predictions.py` script and the JSON file produced by the script itself, prints to the standard output a dictionary of metrics such as the `F1` and `Exact Match` scores, which can be used to assess the performance of a trained model as done in the official SQuAD competition
 
 The two Colab notebooks `DistilbertQA_train.ipynb` and `DistilbertQA_eval.ipynb` provide more comments and useful plots w.r.t the python scripts. If you want to use them make sure to have a Google Drive folder with the json files you want to use and to change in the notebooks the `FOLDER_NAME` and `JSON_TEST_FILE` text fields.
 
