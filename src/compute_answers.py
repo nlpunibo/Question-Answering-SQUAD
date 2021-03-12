@@ -19,7 +19,7 @@ def main():
     data_path = Path(args.path_to_json_file).parent
     _ = LoadData(args.path_to_json_file, str(data_path))
 
-    test_data = load_dataset('json', data_files=str(data_path / "json.csv"), field='data')
+    test_data = load_dataset('json', data_files=str(data_path / "test.json"), field='data')
 
     # Preprocessing the test data
 
