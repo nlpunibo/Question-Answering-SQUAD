@@ -19,11 +19,11 @@ We recommend creating a separate python 3.6 environment.
 
 ## Usage
 
-To run the two scripts `train.py` and the `eval.py`, you just need to launch respectively:
+To run the two scripts `train.py` and the `compute_answers.py`, you just need to launch respectively:
 - `python3 train.py [path_to_json_file]`
-- `python3 get_predictions.py [path_to_json_file]`
+- `python3 compute_answers.py [path_to_json_file]`
 
-Where `path_to_json_file` is the path to the json file which, in the `train.py` case, will be used to train our custom DistilBertForQuestionAnswering model whereas, in the `get_predictions.py` case, it will be used to compute and save another JSON file with the following format
+Where `path_to_json_file` is the path to the json file which, in the `train.py` case, will be used to train our custom DistilBertForQuestionAnswering model whereas, in the `compute_answers.py` case, it will be used to compute and save another JSON file with the following format
 
 ```json
 {
@@ -31,13 +31,13 @@ Where `path_to_json_file` is the path to the json file which, in the `train.py` 
     ...
 }
 ```
- - `python3 evaluate.py [path_to_json_file] [prediction_file]`: given the path to the same testing json file used in the `get_predictions.py` script and the json file produced by the script itself, prints to the standard output a dictionary of metrics such as the `F1` and `Exact Match` scores, which can be used to assess the performance of a trained model as done in the official SQuAD competition
+ - `python3 evaluate.py [path_to_json_file] [prediction_file]`: given the path to the same testing json file used in the `compute_answers.py` script and the json file produced by the script itself, prints to the standard output a dictionary of metrics such as the `F1` and `Exact Match` scores, which can be used to assess the performance of a trained model as done in the official SQuAD competition
 
 The two Colab notebooks `DistilbertQA_train.ipynb` and `DistilbertQA_eval.ipynb` provide more comments and useful plots w.r.t the python scripts. If you want to use them make sure to have a Google Drive folder with the json files you want to use and to change in the notebooks the `FOLDER_NAME` and `JSON_TEST_FILE` text fields.
 
 ## Recommendations
 
-We strongly reccomend you to use a GPU for running the `train.py` and the `get_predictions.py` scripts. To do so you can use the Nvidia graphic card of your machine, if it has one. In this case make sure that you have all the prerequisites (https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-windows) and to have installed the pytorch version for the CUDA platform (https://pytorch.org/).
+We strongly reccomend you to use a GPU for running the `train.py` and the `compute_answers.py` scripts. To do so you can use the Nvidia graphic card of your machine, if it has one. In this case make sure that you have all the prerequisites (https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#install-windows) and to have installed the pytorch version for the CUDA platform (https://pytorch.org/).
 
 If you don't have an Nvidia GPU at your disposal don't worry we have created for you two Colab Notebooks `DistilbertQA_train.ipynb` and the `DistilbertQA_eval.ipynb`. Colab is a hosted Jupyter notebook service that requires no setup to use, while providing free access to computing resources including GPUs! You will not have to install anything, just navigate to Edit→Notebook Settings, and make sure that GPU is selected as Hardware Accelerator.
 
